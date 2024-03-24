@@ -9,6 +9,8 @@ from webdriver_manager.firefox import GeckoDriverManager
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Browser to run tests on")
+
+
 @pytest.fixture(scope="class")
 def browser(request):
     browser_name = request.config.getoption("--browser")
@@ -22,7 +24,7 @@ def browser(request):
     #     driver = webdriver.Safari()
     else:
         raise ValueError(f"Unsupported browser: {browser_name}")
-    driver.get("https://www.trademe.co.nz/") 
-    driver.maximize_window()   
+    driver.get("https://www.trademe.co.nz/")
+    driver.maximize_window()
     yield driver
     driver.quit()
