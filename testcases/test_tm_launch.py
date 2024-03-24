@@ -1,11 +1,11 @@
-
-from os import wait
 import pytest
-from pages.tm_homepage.tm_home_page import TmLaunchPage
+from pages.tm_homepage.tm_home_page import TmHomePage
+from pages.property.property_home_page import PropertyHomePage
 
 
-@pytest.mark.usefixtures("browser") 
-class TestLauchPage():
+
+@pytest.mark.usefixtures("browser")
+class TestLaunchPage():
     # @pytest.fixture()
     # def test_lp(self,browser):
     #     return TmLaunchPage(browser)
@@ -13,9 +13,16 @@ class TestLauchPage():
     # #     lp = TmLaunchPage(browser)
     # #     lp.click_property_button()
     # #     print(lp.get_page_title())
-        
-    
-    def test_search_for_car(self,browser):
-        lp = TmLaunchPage(browser)
-        lp.search_for_item("Subaru")
-        print(browser.get_page_title)
+
+    def test_search_for_car(self, browser):
+        lp = TmHomePage(browser)
+        keyword = "Subaru"
+        lp.search_for_item_in_tm_homepage(keyword)
+        print(lp.get_page_title())
+        results = PropertyHomePage(browser)
+        print(results.get_page_title())
+
+        if results.is_keyword_in_results_header(keyword):
+            assert True
+
+
