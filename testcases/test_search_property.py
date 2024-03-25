@@ -25,27 +25,27 @@ class TestSearchFunctionality:
 
 
         # Assertions with messages
-        # assert property_title == property_title, f"Expected title '{property_search_results_page.PROPERTY_TITLE_TEXT}', got '{property_title}'"
-        # assert "Residential properties" in property_search_header, "The header does not contain 'Residential properties'"
-        #
-        # # Directly assert the conditions instead of using if statement
-        # assert "209" in property_search_results_count, "'209' not found in search results count"
-        # assert "'Millwater'" in property_search_results_count, "'Millwater' not found in search results count"
-        # assert pagination_nos == expected_pagination_numbers, "Pagination numbers are not as expected."
-        #
-        # # If you want to check if all expected numbers are present (regardless of order)
-        # assert all(number in pagination_nos for number in
-        #            expected_pagination_numbers), "Not all expected pagination numbers are present."
-        #
-        # search_results = property_search_results_page.get_search_results_list()
-        #
-        # # Convert the list of dictionaries to a list of tuples for easier assertion
-        # results_tuples = [(item["title"], item["address"]) for item in search_results]
-        #
-        # # # Check if the expected title and address tuple is in the list of result tuples
-        # assert (expected_title, expected_address) in results_tuples, \
-        #     f"Expected title and address pair {(expected_title, expected_address)} not found in search results."
+        assert property_title == property_title, f"Expected title '{property_search_results_page.PROPERTY_TITLE_TEXT}', got '{property_title}'"
+        assert "Residential properties" in property_search_header, "The header does not contain 'Residential properties'"
 
-        property_search_results_page.get_all_search_results_from_all_resulted_pages_v1()
+        # Directly assert the conditions instead of using if statement
+        assert "209" in property_search_results_count, "'209' not found in search results count"
+        assert "'Millwater'" in property_search_results_count, "'Millwater' not found in search results count"
+        assert pagination_nos == expected_pagination_numbers, "Pagination numbers are not as expected."
+
+        # If you want to check if all expected numbers are present (regardless of order)
+        assert all(number in pagination_nos for number in
+                   expected_pagination_numbers), "Not all expected pagination numbers are present."
+
+        search_results = property_search_results_page.get_search_results_list()
+
+        # Convert the list of dictionaries to a list of tuples for easier assertion
+        results_tuples = [(item["title"], item["address"]) for item in search_results]
+
+        # # Check if the expected title and address tuple is in the list of result tuples
+        assert (expected_title, expected_address) in results_tuples, \
+            f"Expected title and address pair {(expected_title, expected_address)} not found in search results."
+
+        # property_search_results_page.get_all_search_results_from_all_resulted_pages_v1()
 
 
