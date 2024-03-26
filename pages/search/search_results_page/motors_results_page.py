@@ -14,7 +14,7 @@ class MotorsResultsPage(BaseDriver):
     RESULT_ITEMS = (By.CSS_SELECTOR, "div.tm-motors-search-listing__result")
     PAGINATION_NEXT = (By.CSS_SELECTOR, "a[rel='next']")
     SORT_DROPDOWN = (By.ID, "sorting-dropdown")
-    SEARCH_RESULTS_HEADER = (By.CSS_SELECTOR, ".tm-search-header-result-count__heading.ng-star-inserted")
+    SEARCH_RESULTS_HEADER = (By.XPATH, "//tm-search-header-result-count/h3")
 
     def get_search_results_header_text(self) -> str:
         """
