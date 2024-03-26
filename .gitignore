@@ -90,7 +90,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
-<<<<<<< HEAD
 
-=======
->>>>>>> Feature001
+geckodriver.log

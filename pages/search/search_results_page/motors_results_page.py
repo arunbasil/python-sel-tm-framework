@@ -22,7 +22,7 @@ class MotorsResultsPage(BaseDriver):
         """
         # element = self.driver.find_element(*self.results_header)
         # return element.text
-        return self.wait_for_element(self.SEARCH_RESULTS_HEADER).text
+        return self.wait_for_element_presence(self.SEARCH_RESULTS_HEADER).text
 
     def is_keyword_in_results_header(self, keyword: str) -> bool:
         header_text = self.get_search_results_header_text()

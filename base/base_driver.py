@@ -23,7 +23,7 @@ class BaseDriver():
             print(error_message)
             return error_message  # Return the error message as a string instead of False
 
-    def wait_for_element(self, locator: Tuple[By, str], timeout: int = 10) -> Optional[WebElement]:
+    def wait_for_element_presence(self, locator: Tuple[By, str], timeout: int = 15) -> Optional[WebElement]:
         try:
             return WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_element_located(locator)
@@ -80,7 +80,7 @@ class BaseDriver():
             # Add wait for the page to load if necessary
 
     def get_number_of_pages(self, element: tuple):
-        pagination_text = self.wait_for_element(element).text
+        pagination_text = self.wait_for_element_presence(element).text
         # Convert the string into a list, filtering out non-integer values
         pagination_list = [item for item in pagination_text.strip().split('\n') if item.isdigit()]
         # Convert list items to integers
@@ -96,3 +96,26 @@ class BaseDriver():
             )
         except TimeoutException:
             raise AssertionError(f"Elements not found with locator: {locator}")
+
+    def wait_for_elements_visible(self, locator: tuple, timeout: int = 10) -> bool | list[WebElement]:
+        """Wait for all elements that match a locator to be present in the DOM."""
+
+        try:
+            return WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_all_elements_located(locator)
+            )
+        except TimeoutException:
+            raise AssertionError(f"Elements not found with locator: {locator}")
+
+    def wait_for_element_visible(self, locator: tuple, timeout: int = 10) -> bool | list[WebElement]:
+        """Wait for all elements that match a locator to be present in the DOM."""
+
+        try:
+            return WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located(locator)
+            )
+        except TimeoutException:
+            print(f"Element not found with locator: {locator}")
+            return None
+        # except TimeoutException:
+        #     raise AssertionError(f"Elements not found with locator: {locator}")

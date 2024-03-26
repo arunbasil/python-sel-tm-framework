@@ -22,7 +22,7 @@ class PropertyHomePage(BaseDriver):
         """
         Returns the TEXT (element.text) of the search results header element
         """
-        return self.wait_for_element(self.SEARCH_RESULTS_HEADER).text
+        return self.wait_for_element_presence(self.SEARCH_RESULTS_HEADER).text
 
     def get_property_search_results_page_title(self) -> str:
         return self.get_page_title()

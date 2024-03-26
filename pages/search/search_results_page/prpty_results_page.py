@@ -1,9 +1,12 @@
+from time import sleep
+
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from base.base_driver import BaseDriver
-from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException, TimeoutException
+import logging
 
 
 class PropertySearchResultsPage(BaseDriver):
@@ -27,15 +30,20 @@ class PropertySearchResultsPage(BaseDriver):
     LISTING_TITLE = (By.XPATH, "//tm-property-search-card-listing-title[contains(@id, 'title')]")
     LISTING_ADDRESS = (By.XPATH, "//tm-property-search-card-address-subtitle[contains(@id, 'subtitle')]")
 
+    # PAGINATION
+    PAGINATION_LINKS = (By.XPATH,
+                        "//tm-property-search-component//tm-property-search-results//tm-search-results//tg-pagination//ul//tg-pagination-link/a[@class='ng-star-inserted']")
+    PAGINATION_NEXT_BUTTON = (By.XPATH, "//a[starts-with(@aria-label, 'Next page')]")
+
     def property_search_results_page_title(self):
         # return self.get_page_title()
         return self.wait_for_page_load(self.PROPERTY_TITLE_TEXT)
 
     def property_search_header(self) -> str:
-        return self.wait_for_element(self.PROPERTY_SEARCH_HEADER).text
+        return self.wait_for_element_presence(self.PROPERTY_SEARCH_HEADER).text
 
     def get_number_of_search_results(self) -> str:
-        return self.wait_for_element(self.PROPERTY_SEARCH_RESULTS_HEADER).text
+        return self.wait_for_element_presence(self.PROPERTY_SEARCH_RESULTS_HEADER).text
 
     def get_pagination_page_nos(self) -> list:
         return self.get_number_of_pages(self.PAGINATION_TEXT)
@@ -92,32 +100,71 @@ class PropertySearchResultsPage(BaseDriver):
         for link in pagination_links:
             print(link.text)
 
+    def go_to_page(self, page_number):
+        # Assuming page_number is 1-indexed
+        pagination_links = self.wait_for_elements_present(self.PAGINATION_LINKS)
+        if page_number <= len(pagination_links) and page_number > 0:
+            # Click the pagination link corresponding to the page_number
+            pagination_links[page_number - 1].click()
+        else:
+            print(f"Page number {page_number} is out of range.")
 
+    # def collect_search_results_from_all_pages(self):
+    #     all_results = []
+    #     current_page = 1
+    #     while True:
+    #         print(f"Collecting results from page {current_page}")
+    #         page_results = self.get_search_results_list()
+    #         all_results.extend(page_results)
+    #         print(f"Total results collected so far: {len(all_results)}")
+    #
+    #         try:
+    #             next_button = self.wait_for_element_visible(self.PAGINATION_NEXT_BUTTON)
+    #             if next_button:
+    #                 print("Next button found and clickable. Moving to the next page.")
+    #                 next_button.click()
+    #                 sleep(5)  # Adjust sleep time based on your page's load time
+    #                 current_page += 1
+    #             else:
+    #                 print("Next button not found or not clickable. Ending the loop.")
+    #                 break
+    #         except TimeoutException:
+    #             print("TimeoutException: Next button not clickable within 2 seconds. Ending the loop.")
+    #             break
+    #
+    #     return all_results
 
-        # try:
-        #     while True:
-        #         # Process the current page's listings here...
-        #         search_results = self.get_search_results_list()
-        #         all_search_results.extend(search_results)
-        #
-        #         # Find the next button. This is usually the last button in the pagination container.
-        #         # We use try/except to handle the case where the next button might not be present on the last page.
-        #         try:
-        #             # next_button = [link for link in pagination_links if 'Next' in link.text][0]
-        #             print(next_button.text)
-        #         except IndexError:
-        #             print("No 'Next' button found. Assuming we are on the last page.")
-        #             break  # Exit the loop if we are on the last page
-        #
-        #         # Check if the next button is enabled or disabled.
-        #         if 'disabled-class-name' in next_button.get_attribute("class"):
-        #             print("Next button is disabled. We are on the last page.")
-        #             break  # Stop if the next button is disabled (we are on the last page)
-        #         else:
-        #             next_button.click()  # Click the next button to go to the next page
-        #
-        # except NoSuchElementException:
-        #     print("Pagination structure is different or cannot be found.")
-        # except StaleElementReferenceException:
-        #     print(
-        #         "Stale element reference. The page structure might have changed or the element might have been removed.")
+    def is_next_button_clickable(self):
+        """Check if the Next button is present and clickable."""
+        try:
+            return self.wait_for_element_visible(self.PAGINATION_NEXT_BUTTON)
+        except TimeoutException:
+            print("Next button not clickable within the specified timeout.")
+            return None
+
+    def navigate_to_next_page(self):
+        """Click the Next button to go to the next page."""
+        next_button = self.is_next_button_clickable()
+        if next_button:
+            next_button.click()
+            return True
+        return False
+
+    def collect_search_results_from_all_pages(self) -> list[dict]:
+        """Collect search results from all pages."""
+        all_results = []
+        current_page = 1
+
+        while True:
+            print(f"Collecting results from page {current_page}")
+            page_results = self.get_search_results_list()
+            all_results.extend(page_results)
+            print(f"Total results collected so far: {len(all_results)}")
+
+            if not self.navigate_to_next_page():
+                print("No more pages to navigate. Ending the loop.")
+                break
+
+            current_page += 1
+        # return List of dicts
+        return all_results
