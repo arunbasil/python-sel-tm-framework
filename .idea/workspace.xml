@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="52d4beaf-221d-46af-ac2c-6bf0c0714c0a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/python-selenium-framework.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/base_driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/base_driver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/property/property_home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/property/property_home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search_results_page/motors_results_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search_results_page/motors_results_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search_results_page/prpty_results_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search_results_page/prpty_results_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tm_homepage/tm_home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tm_homepage/tm_home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tm_homepage/tm_vertical_search_links.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tm_homepage/tm_vertical_search_links.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcases/test_search_property.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcases/test_search_property.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/search_test_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/search_test_data.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2dfcysiUxx9HfhtvLeR5UkwZ8ab" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/arunbasil/PycharmProjects/python-selenium-framework",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/search/search_results_page" />
+      <recent name="$PROJECT_DIR$/pages/search" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.pytest for test_search_property.TestSearchFunctionality.test_property_search_results_page">
+    <configuration name="pytest for test_search_property.TestSearchFunctionality.test_pagination_numbers" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-selenium-framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_search_property.TestSearchFunctionality.test_pagination_numbers&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_search_property.TestSearchFunctionality.test_property_search_results_page" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-selenium-framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_search_property.TestSearchFunctionality.test_property_search_results_page&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_tm_launch.TestLaunchPage.test_search_for_car" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-selenium-framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_tm_launch.TestLaunchPage.test_search_for_car&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for testcases.test_search_property.TestSearchFunctionality.test_search_results" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-selenium-framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;testcases.test_search_property.TestSearchFunctionality.test_search_results&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in testcases" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="python-selenium-framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="/opt/homebrew/bin/python3.11" />
+      <option name="SDK_NAME" value="/opt/homebrew/bin/python3.11" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/testcases&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.pytest in testcases" />
+      <item itemvalue="Python tests.pytest for test_search_property.TestSearchFunctionality.test_pagination_numbers" />
+      <item itemvalue="Python tests.pytest for test_search_property.TestSearchFunctionality.test_property_search_results_page" />
+      <item itemvalue="Python tests.pytest for testcases.test_search_property.TestSearchFunctionality.test_search_results" />
+      <item itemvalue="Python tests.pytest for test_tm_launch.TestLaunchPage.test_search_for_car" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest for test_search_property.TestSearchFunctionality.test_property_search_results_page" />
+        <item itemvalue="Python tests.pytest for test_search_property.TestSearchFunctionality.test_pagination_numbers" />
+        <item itemvalue="Python tests.pytest for test_tm_launch.TestLaunchPage.test_search_for_car" />
+        <item itemvalue="Python tests.pytest for testcases.test_search_property.TestSearchFunctionality.test_search_results" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52d4beaf-221d-46af-ac2c-6bf0c0714c0a" name="Changes" comment="" />
+      <created>1710402831676</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710402831676</updated>
+    </task>
+    <servers />
+  </component>
+</project>
