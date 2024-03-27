@@ -3,10 +3,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 
 def take_screenshot(driver: WebDriver, test_method_name: str):
-    # Ensure the 'screenshots' directory exists
-    screenshots_dir = os.path.join(os.getcwd(), 'screenshots')
-    if not os.path.exists(screenshots_dir):
-        os.makedirs(screenshots_dir)
+    # Define the relative path to the 'screenshots' directory from the 'testcases' directory
+    screenshots_dir = os.path.join(os.getcwd(), '..', 'screenshots')
+    os.makedirs(screenshots_dir, exist_ok=True)  # Create the directory if it doesn't exist
 
     # Find the next available file name
     count = 1
