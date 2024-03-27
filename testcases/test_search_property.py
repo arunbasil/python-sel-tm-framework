@@ -1,6 +1,7 @@
 import pytest
 from pages.search.search_results_page.prpty_results_page import PropertySearchResultsPage
 from pages.tm_homepage.tm_home_page import TmHomePage
+from utilities.screenshot_util import take_screenshot
 
 # Define a mapping for search term to page object
 PAGE_TYPE_MAPPING = {
@@ -34,6 +35,7 @@ def test_dynamic_search_results_contains_expected_data(browser, dynamic_search_r
 
     # Get all search results from all pages
     search_results = dynamic_search_results_page.collect_search_results_from_all_pages()
+    take_screenshot(browser, 'test_my_feature')
 
     # Convert to list of tuples
     results_tuples = [(item["title"], item["address"]) for item in search_results]
