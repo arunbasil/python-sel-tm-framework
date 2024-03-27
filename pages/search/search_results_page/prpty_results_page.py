@@ -1,12 +1,10 @@
-from time import sleep
 
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from base.base_driver import BaseDriver
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException, TimeoutException
-import logging
+from utilities.logger import setup_logger
 
 
 class PropertySearchResultsPage(BaseDriver):
@@ -14,7 +12,9 @@ class PropertySearchResultsPage(BaseDriver):
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
         self.driver = driver
+        self.logger = setup_logger("PropertySearchResultsPage")
 
+    # DECLARE WEB ELEMENTS------------------------------------------------
     PROPERTY_TITLE_TEXT = "Residential properties | Trade Me Property"
     PROPERTY_SEARCH_HEADER = (By.XPATH, "//tm-property-search-header/div/div/tm-search-header-heading/h1")
     PROPERTY_SEARCH_RESULTS_HEADER = (
@@ -64,8 +64,17 @@ class PropertySearchResultsPage(BaseDriver):
                     "address": address.text if address else None
                 }
                 search_results.append(search_result)
-        except NoSuchElementException as e:
-            print(f"An Listing element was not found: {e}")
+        except StaleElementReferenceException:
+            title_elements = self.wait_for_elements_present(self.LISTING_TITLE)
+            address_elements = self.wait_for_elements_present(self.LISTING_ADDRESS)
+            if len(title_elements) != len(address_elements):
+                raise ValueError("Mismatch in the number of titles and addresses found.")
+            for title, address in zip(title_elements, address_elements):
+                search_result = {
+                    "title": title.text if title else None,
+                    "address": address.text if address else None
+                }
+                search_results.append(search_result)
         return search_results
 
     def get_all_search_results_from_all_resulted_pages(self) -> list[dict]:
@@ -137,7 +146,7 @@ class PropertySearchResultsPage(BaseDriver):
     def is_next_button_clickable(self):
         """Check if the Next button is present and clickable."""
         try:
-            return self.wait_for_element_visible(self.PAGINATION_NEXT_BUTTON)
+            return self.wait_for_element_visible(self.PAGINATION_NEXT_BUTTON, 20)
         except TimeoutException:
             print("Next button not clickable within the specified timeout.")
             return None
@@ -156,13 +165,13 @@ class PropertySearchResultsPage(BaseDriver):
         current_page = 1
 
         while True:
-            print(f"Collecting results from page {current_page}")
+            self.logger.info(f"Collecting results from page {current_page}")
             page_results = self.get_search_results_list()
             all_results.extend(page_results)
-            print(f"Total results collected so far: {len(all_results)}")
+            self.logger.info(f"Total results collected so far: {len(all_results)}")
 
             if not self.navigate_to_next_page():
-                print("No more pages to navigate. Ending the loop.")
+                self.logger.info("No more pages to navigate. Ending the loop.")
                 break
 
             current_page += 1
