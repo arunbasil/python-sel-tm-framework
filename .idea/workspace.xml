@@ -7,12 +7,6 @@
     <list default="true" id="52d4beaf-221d-46af-ac2c-6bf0c0714c0a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/test_my_feature_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/test_my_feature_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/test_my_feature_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/test_my_feature_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/test_my_feature_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/test_my_feature_6.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

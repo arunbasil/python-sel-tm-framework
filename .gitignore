@@ -8,6 +8,7 @@ __pycache__/
 **/__pycache__/
 pages/**/__pycache__/
 testcases/**/__pycache__/
+testcases/.pytest_cache
 .idea/
 .pytest_cache/
 
@@ -99,4 +100,4 @@ ENV/
 # Rope project settings
 .ropeproject
 
-geckodriver.log
+testcases/geckodriver.log
